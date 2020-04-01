@@ -100,7 +100,7 @@ public class App {
         BufferedReader br = null;
         try{
             fi = new FileInputStream(fileName);
-            is = new InputStreamReader(fi);
+            is = new InputStreamReader(fi,"UTF-8");
             br = new BufferedReader(is);
 
             String line = br.readLine();//読み込み行
