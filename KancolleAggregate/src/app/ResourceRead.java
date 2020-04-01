@@ -106,6 +106,28 @@ class ResourceRead{
         }
     }
 
+    public void sortingFree(){
+        System.out.println("まだ振り分けられていない任意資材:"+Arrays.asList(free));
+        System.out.println("振り分けたい任意資材の値を入力してください");
+        Scanner scanner=new Scanner(System.in);
+        int sortResource=scanner.nextInt();
+        if(free.indexOf(sortResource)!=-1){
+            System.out.println("どこに振り分けますか？\n燃料:1\n弾薬:2\n鋼材:3\nボーキ:4");
+            int numResource=scanner.nextInt();
+            switch(numResource){
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    resource[numResource-1]+=free.get(free.indexOf(sortResource));
+                    nowResource[numResource-1]+=free.get(free.indexOf(sortResource)); 
+                    free.remove(free.indexOf(sortResource));
+                default:
+                    System.out.println("入力された値が違います");
+            }
+        }
+    }
+
     public void printResource(){
         System.out.println("獲得した資材:"+resource[0]+"/"+resource[1]+"/"+resource[2]+"/"+resource[3]+" 任意:"+Arrays.asList(free)+" 感情:"+emotion+" 家具コイン:"+resource[4]);
         System.out.println("現在資材:"+nowResource[0]+"/"+nowResource[1]+"/"+nowResource[2]+"/"+nowResource[3]+" コイン:"+nowResource[4]);

@@ -24,7 +24,7 @@ public class App {
         Scanner scanner=new Scanner(System.in);
         while(true){
             System.out.println("出た資材に応じて値を入力してEnter");
-            System.out.println("資材の確認:0\n燃料追加:1\n弾薬追加:2\n鋼材追加:3\nボーキ追加:4\n任意追加:5\n感情追加:6\n特殊戦果表:7\n結果をクリップボードにコピー:8");
+            System.out.println("資材の確認:0\n燃料追加:1\n弾薬追加:2\n鋼材追加:3\nボーキ追加:4\n任意追加:5\n感情追加:6\n特殊戦果表:7\n任意資材の振り分け:8\n結果をクリップボードにコピー:9");
             try{
                 int num=scanner.nextInt();
                 switch(num){
@@ -79,6 +79,9 @@ public class App {
                         }
                         break;
                     case 8:
+                        resourceRead.sortingFree();
+                        break;
+                    case 9:
                         resourceRead.copyToClipboard();
                         break;
                     default:
